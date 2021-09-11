@@ -58,7 +58,7 @@ public class EnemyLogic : BaseEnemy
         while (_lookTmr > 0)
         {
             _lookTmr -= Time.fixedDeltaTime;
-            _statusImage.fillAmount = _lookTmr / _enemyData.TimeToMinus;
+            _statusImage.fillAmount = _lookTmr / _enemyData.TimeToFound;
             yield return new WaitForFixedUpdate();
         }
 
@@ -72,7 +72,7 @@ public class EnemyLogic : BaseEnemy
         _isFound = true;
         _timerCoroutine = null;
         _isFound = true;
-        _statusImage.color = Color.red;
+        _statusImage.color = Color.green;
         OnFound?.Invoke(name, _endPoint.position);
     }
 }
